@@ -29,7 +29,7 @@
             MsgBox($"Uh Oh!!{vbNewLine}{ex.Message}")
         End Try
 
-        'TODO clear textboxes then select added item
+        'TODO clear text boxes then select added item
         'NameTextBox.Text = ""
         'AgeTextBox.Text = ""
     End Sub
@@ -42,7 +42,7 @@
                 MainComboBox.Items.Add(userInfo(i, NAMEFIELDINDEX%))
             End If
         Next
-        'TODO if broke somtheing
+        'TODO if broke something
         If MainComboBox.SelectedIndex <> -1 Then
             MainComboBox.SelectedIndex = 0
         End If
@@ -100,7 +100,6 @@
         NameTextBox.Text = ""
         AgeTextBox.Text = ""
 
-
         Console.Beep()
 
     End Sub
@@ -121,5 +120,19 @@
     Private Sub ComboBoxForm_Load(sender As Object, e As EventArgs) Handles Me.Load
         FakeData()
         UpdateComboBox()
+        EvaluateTextBoxes()
+        'GoButton.Enabled = False
     End Sub
+
+    Sub EvaluateTextBoxes() Handles NameTextBox.KeyUp, AgeTextBox.KeyUp
+
+        If NameTextBox.Text <> "" And AgeTextBox.Text <> "" Then
+            GoButton.Enabled = True
+        Else
+            GoButton.Enabled = False
+        End If
+
+    End Sub
+
+
 End Class
