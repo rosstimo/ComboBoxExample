@@ -120,7 +120,9 @@
     Private Sub ComboBoxForm_Load(sender As Object, e As EventArgs) Handles Me.Load
         FakeData()
         UpdateComboBox()
+        RadioButton1.Checked = True
         EvaluateTextBoxes()
+
         'GoButton.Enabled = False
     End Sub
 
@@ -128,8 +130,14 @@
 
         If NameTextBox.Text <> "" And AgeTextBox.Text <> "" Then
             GoButton.Enabled = True
+            RadioButton1.Enabled = True
+            RadioButton2.Enabled = True
+            RadioButton3.Enabled = True
         Else
             GoButton.Enabled = False
+            RadioButton1.Enabled = False
+            RadioButton2.Enabled = False
+            RadioButton3.Enabled = False
         End If
 
     End Sub
